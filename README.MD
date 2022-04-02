@@ -19,7 +19,7 @@ Web interface to control Apache Airflow should become available on [localhost:80
 default login is `airflow` and default password is `airflow`.
 
 PostgreSQL should become available on `localhost:5437`. Default username for Airflow is `airflow` and
-password is (surprise!) `airflow`.
+password is (*surprise!*) `airflow`.
 
 Further instructions can be found in 
 [official documentation.](https://airflow.apache.org/docs/apache-airflow/stable/index.html)
