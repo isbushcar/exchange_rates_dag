@@ -14,7 +14,11 @@ TABLE_NAME = 'public.exchangerate_host_api'
 
 
 def get_btc_usd_history(dag_start_date: datetime, **context) -> None:
-    """"""
+    """
+    Get rates' history if last execution date was earlier than yesterday.
+    Args:
+        dag_start_date - first day to get data if it's DAG's first run
+    """
     execution_date = context.get('logical_date')
     start_date = dag_start_date.strftime('%Y-%m-%d')
     last_updated = DB_CONN.get_records(
@@ -53,6 +57,7 @@ def get_btc_usd_history(dag_start_date: datetime, **context) -> None:
 
 
 def get_current_btc_usd_rate(**context) -> None:
+    """Get latest rate."""
     response = requests.get(BASE_LATEST_API_URL, BASE_REQUEST_PARAMS)
     execution_date = context.get('logical_date')
     logging.warning(response.json()['rates'])
